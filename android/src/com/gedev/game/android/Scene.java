@@ -10,45 +10,73 @@ import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.viewport.FillViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Scene extends ApplicationAdapter implements InputProcessor {
+
+    /**
+     * Instance variables
+     */
     private TiledMap scene;
     private TiledMapRenderer scene_renderer;
     private OrthographicCamera camera;
     private Viewport viewport;
-    private Vector2 touch_started;
 
+    private Vector2 touch_started;
+    private float scale;
+
+    /**
+     * ApplicationAdapter overriding method
+     */
     @Override
     public void create() {
-        camera = new OrthographicCamera();
-        camera.position.set((float) (camera.viewportWidth / 2), (float) (camera.viewportHeight / 2), 0);
-
-        viewport = new FillViewport((float) 1024, (float) 1024, camera);
-        viewport.apply();
-
         scene = new TmxMapLoader().load("scene.tmx");
         scene_renderer = new OrthogonalTiledMapRenderer(scene);
+        camera = new OrthographicCamera(1920, 1080);
+        viewport = new ExtendViewport(camera.viewportWidth, camera.viewportHeight, camera);
+/*
 
         touch_started = new Vector2();
+        scale = (Gdx.graphics.getWidth() / camera.viewportWidth);
+*/
+
+        viewport.apply();
+        camera.position.set((camera.viewportWidth / 2), (camera.viewportHeight / 2), 0);
 
         Gdx.input.setInputProcessor(this);
     }
 
     @Override
+    public void resize(int width, int height) {
+    }
+
+    @Override
     public void render() {
-        Gdx.gl.glClearColor(1, 0, 0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         camera.update();
-
         scene_renderer.setView(camera);
         scene_renderer.render();
     }
 
+    @Override
+    public void pause() {
+    }
+
+    @Override
+    public void resume() {
+    }
+
+    @Override
+    public void dispose() {
+    }
+
+    /**
+     * InputProcessor overriding method
+     */
     @Override
     public boolean keyDown(int keycode) {
         return false;
@@ -66,7 +94,6 @@ public class Scene extends ApplicationAdapter implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        touch_started.set((float) screenX, (float) screenY);
         return false;
     }
 
@@ -77,8 +104,6 @@ public class Scene extends ApplicationAdapter implements InputProcessor {
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        camera.translate((touch_started.x - (float)screenX), (screenY - touch_started.y));
-        touch_started.set((float) screenX, (float) screenY);
         return false;
     }
 
@@ -89,16 +114,6 @@ public class Scene extends ApplicationAdapter implements InputProcessor {
 
     @Override
     public boolean scrolled(int amount) {
-        return false;
-    }
-
-    @Override
-    public void resize(int width, int height) {
-        camera.position.set((camera.viewportWidth / 2), (camera.viewportHeight / 2), 0);
-        viewport.update(width, height);
-    }
-
-    public boolean isOutOfScreen(Vector3 position) {
         return false;
     }
 }
