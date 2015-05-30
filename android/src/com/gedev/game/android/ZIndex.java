@@ -1,4 +1,4 @@
-package com.mygdx.game.android;
+package com.gedev.game.android;
 
 import android.util.Log;
 
@@ -15,7 +15,8 @@ import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.math.CatmullRomSpline;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -29,43 +30,96 @@ public class ZIndex extends ApplicationAdapter implements InputProcessor {
     private OrthographicCamera camera;
     private Viewport viewport;
 
+    Vector2[] mWayPoints = new Vector2[]{
+            new Vector2(28, 9)
+            , new Vector2(27, 9)
+            , new Vector2(26, 9)
+            , new Vector2(25, 9)
+            , new Vector2(24, 9)
+            , new Vector2(23, 9)
+            , new Vector2(22, 9)
+            , new Vector2(22, 10)
+            , new Vector2(22, 11)
+            , new Vector2(22, 12)
+            , new Vector2(21, 12)
+            , new Vector2(20, 12)
+            , new Vector2(19, 12)
+            , new Vector2(18, 12)
+            , new Vector2(17, 12)
+            , new Vector2(16, 12)
+            , new Vector2(16, 11)
+            , new Vector2(16, 10)
+            , new Vector2(16, 9)
+            , new Vector2(16, 8)
+            , new Vector2(16, 7)
+            , new Vector2(16, 6)
+            , new Vector2(16, 5)
+            , new Vector2(16, 4)
+            , new Vector2(16, 3)
+            , new Vector2(16, 2)
+            , new Vector2(15, 2)
+            , new Vector2(14, 2)
+            , new Vector2(13, 2)
+            , new Vector2(12, 2)
+            , new Vector2(11, 2)
+            , new Vector2(10, 2)
+            , new Vector2(9, 2)
+            , new Vector2(8, 2)
+            , new Vector2(7, 3)
+            , new Vector2(7, 4)
+            , new Vector2(7, 5)
+            , new Vector2(7, 6)
+            , new Vector2(7, 7)
+            , new Vector2(6, 7)
+            , new Vector2(5, 7)
+            , new Vector2(4, 7)
+            , new Vector2(3, 7)
+    };
+
     SpriteBatch sb;
     Texture texture;
     Sprite sprite;
     MapLayer objectLayer;
     TextureRegion textureRegion;
+
+    CatmullRomSpline<Vector2> mCatmull;
+    private int i = 0;
+    private int lenght = mWayPoints.length;
+    private float current = 0;
+    private float speed = 0.15f;
+
+    public ZIndex(){
+        for(int a = 0 ; a < lenght ; a++){
+            mWayPoints[a].x *= 64;
+            mWayPoints[a].y *= 64;
+
+        }
+    }
+
     @Override
     public void create() {
         camera = new OrthographicCamera();
         camera.position.set((float) (camera.viewportWidth / 2), (float) (camera.viewportHeight / 2), 0);
 
-        viewport = new StretchViewport(1920, 1080, camera);
+        viewport = new StretchViewport(2048, 1536, camera);
         viewport.apply();
 
-//        sb = new SpriteBatch();
-//        texture = new Texture(Gdx.files.internal("monster.gif"));
-//        sprite = new Sprite(texture);
-
         scene = new TmxMapLoader().load("scene.tmx");
-
-
-//        scene_renderer.addSprite(sprite);
 
         Gdx.input.setInputProcessor(this);
 
         texture = new Texture(Gdx.files.internal("boss.png"));
-
-        objectLayer = scene.getLayers().get("player");
-        Log.e("Test","TESST::: "+objectLayer.getName());
-        textureRegion = new TextureRegion(texture,256,256);
+        objectLayer = scene.getLayers().get("monster");
+        textureRegion = new TextureRegion(texture, 256, 256);
+        scene_renderer = new OrthoTileMapWithSprite(scene);
+        mCatmull = new CatmullRomSpline<Vector2>(mWayPoints, true);
 
         TextureMapObject tmo = new TextureMapObject(textureRegion);
-        Log.e("Test", "TESST::: " + tmo.getName());
+
         tmo.setX(0);
         tmo.setY(0);
-        objectLayer.getObjects().add(tmo);
 
-        scene_renderer = new OrthoTileMapWithSprite(scene);
+        objectLayer.getObjects().add(tmo);
     }
 
     @Override
@@ -78,6 +132,20 @@ public class ZIndex extends ApplicationAdapter implements InputProcessor {
 
         scene_renderer.setView(camera);
         scene_renderer.render();
+
+        current += Gdx.graphics.getDeltaTime() * speed;
+        if(current >= 1)
+            current -= 1;
+
+        travel(mCatmull.valueAt(new Vector2(mWayPoints[i].x,mWayPoints[i].y), current).x,mCatmull.valueAt(new Vector2(mWayPoints[i].x,mWayPoints[i].y), current).y);
+        i++;
+
+        if(i > lenght){
+            i = 0;
+        }
+//
+//        myCatmull.valueAt(out, current);
+//        batch.draw(sprite, out.x, out.y);
     }
 
     @Override
@@ -97,12 +165,13 @@ public class ZIndex extends ApplicationAdapter implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        Vector3 clickCoordinates = new Vector3(screenX,screenY,0);
+/*        Vector3 clickCoordinates = new Vector3(screenX, screenY, 0);
         Vector3 position = camera.unproject(clickCoordinates);
-//        sprite.setPosition(position.x, position.y);
-        TextureMapObject character = (TextureMapObject)scene.getLayers().get("player").getObjects().get(0);
-        character.setX((float)position.x);
-        character.setY((float)position.y);
+
+        TextureMapObject character = (TextureMapObject) scene.getLayers().get("monster").getObjects().get(0);
+        character.setX((float) position.x);
+        character.setY((float) position.y);*/
+//        this.travel();
         return true;
     }
 
@@ -130,5 +199,44 @@ public class ZIndex extends ApplicationAdapter implements InputProcessor {
     public void resize(int width, int height) {
         camera.position.set((camera.viewportWidth / 2), (camera.viewportHeight / 2), 0);
         viewport.update(width, height);
+    }
+
+    public void travel(float x,float y) {
+        Log.e("Testx",x+"");
+        Log.e("Testy",y+"");
+
+        TextureMapObject character= (TextureMapObject) scene.getLayers().get("monster").getObjects().get(0);
+        character.setX(x);
+        character.setY(y);
+
+//        Vector2 walk;
+//        Vector3 unproj;
+//        float t;
+//        int length = (mWayPoints.length - 1);
+//        int i = 0;
+//
+//        while (i <= length) {
+//            character = (TextureMapObject) scene.getLayers().get("monster").getObjects().get(0);
+//            t = ((float) i / (float) length);
+//            walk = new Vector2(mWayPoints[i].x * 64, mWayPoints[i].y * 64);
+//            unproj = camera.unproject(new Vector3(mCatmull.valueAt(walk, t).x, mCatmull.valueAt(walk, t).y, 0.0f));
+//
+//            Log.e("Test", unproj.x + "");
+//            Log.e("Test", unproj.y + "");
+//
+//            character.setX(unproj.x);
+//            character.setX(unproj.y);
+//            camera.update();
+
+//            try {
+//                this.render();
+//                Thread.sleep(1000);
+                i++;
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        }
+        ;
+
     }
 }
