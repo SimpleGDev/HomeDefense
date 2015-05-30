@@ -1,6 +1,7 @@
 package com.mygdx.game.android;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
@@ -15,7 +16,8 @@ import java.util.List;
  * Created by ultimate on 5/23/2015.
  */
 public class OrthoTileMapWithSprite extends OrthogonalTiledMapRenderer  {
-
+    private Sprite sprite;
+    private SpriteBatch sb;
     private List<Sprite> sprites;
     private int drawSpritesAfterLayer = 1;
 
@@ -55,7 +57,7 @@ public class OrthoTileMapWithSprite extends OrthogonalTiledMapRenderer  {
     public void renderObject(MapObject object) {
         if(object instanceof TextureMapObject) {
             TextureMapObject textureObj = (TextureMapObject) object;
-            batch.draw(textureObj.getTextureRegion(), textureObj.getX(), textureObj.getY());
+            sb.draw(textureObj.getTextureRegion(), textureObj.getX(), textureObj.getY());
         }
     }
 }
