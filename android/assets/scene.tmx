@@ -9,9 +9,17 @@
  <tileset firstgid="775" name="stone" tilewidth="32" tileheight="32">
   <image source="stonet.png" width="1280" height="1110"/>
  </tileset>
+ <tileset firstgid="2135" name="boss" tilewidth="32" tileheight="32">
+  <image source="boss.png" width="256" height="256"/>
+ </tileset>
  <layer name="ground" width="64" height="40">
   <data encoding="base64" compression="zlib">
    eJzt1l1OwkAUhmFwDwbsKlAL4h70wlWgV+g6QJahwjZQl+HfMlAJXxMmmUzOqS1D5ZR8F8/dpOHtGabTajYarQjtEk4P7Pmv9n3r37T5xEBzkf50LaZfand23a31u98eO3+/dwi3cGesXeuP3f+u0fWPYAz3MDHQLPWnW+z39/sDPMITTGFmoNkX7vfY/R8+P3sHc3iGF3g10Bz2Sz1552KZ79sbvMMHfMKXgWZp/kX7tdlLc88s4Bt+4BeWBpq1/tSbr3YeHkFSsF361lk7/8N2v1/aC13owZly3knq0B/uA+1/cbXu7cO58Lx96M97D4d/PE/bA9bufUX6Qx2sPy7Za7V7k/4LrL/MmfmuW6rsH2DtNdx4veG9vq7vwEmauo4w7/BeX/d3kOTw19XhXl8lN2fL9/qqWb/XV836vZ6IiIiIiIiIiCizAsp8DDU=
+  </data>
+ </layer>
+ <layer name="boss" width="64" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztz0UKA0EARNFezg3j7m4Td3eX8+afIRAS6Prw9lXGKKWUUkoppZRSSimllFKf53GM8cIHPwIIIoSw8+t13y/CxyhiiCOBJFJIW/A/w8cscsijgCJKKFvwv8LHKmqoowEXTbQs+N/mYwdd9NDHAEOMLPg/5uMEU8wwxwJLrCz4v+bjBlvssMcBR5ws+H/m4wVX3HDHA0+8LPivlFJKKaX+oze2Xx+h
   </data>
  </layer>
  <layer name="object" width="64" height="40">
@@ -19,4 +27,10 @@
    eJztmDlOAzEUhl8yBVCxHYMlcAo2iaUiXIHlCFBCcg2Wi7B1bB1bR4ADsLV8zSgunPHIUSSP/T7p00iZaJRfz2/8nC8R+cYf/MU/SYvRmsgYjuMETtbs3zvHC7zEK7wu8ex9PDCuITJF3mmcwVls9Mh/g7d4h/f4UOLZLWwb1xBZIO8iLuEyrvTI/4hP+Iwv+GrcG8pEhnEk634Wcs19eMMOvuMHfhr3GuSew/msmzvkmvtQVM9NcjdxK4svd07ZXLGt+7LEsu5961f13Dk+OWJf867ZJ5bam5h7um32qcJs1w/mnm6bfaow2/WDuacXzT5FrNZF1nAdN+oD+6kDxefck7NN5h3cxb2K5vc59+QckvkIW9gONL/rPVZ07nFxTOYTPMWzQPO73mO+va8oSvWw/ZeTEubclyLm3Kf4oT2UTg/Zap1SD8Vea1cvx17r2OvrIvb6KoqiKIqipMY/audmYA==
   </data>
  </layer>
+ <layer name="boss_2" width="64" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztzzUSAkEARNEJ94a4u9vi7u5yXv4JIKWY/lUv7KCN+ZzHMcYLH/wIIIgQws6X8R8U4WMUMcSRQBIppC34n+FjFjnkUUARJZQt+F/hYxU11NGAiyZaFvxv87GDLnroY4AhRhb8H/NxgilmmGOBJVYW/F/zcYMtdtjjgCNOFvw/8/GCK26444EnXhb8V0oppZRSSimllFJKKaWUUkoppdTv9waErh+h
+  </data>
+ </layer>
+ <objectgroup name="player"/>
 </map>
