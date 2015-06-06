@@ -1,7 +1,5 @@
 package com.gedev.game.android;
 
-import android.util.Log;
-
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -105,12 +103,14 @@ public class ZIndex extends ApplicationAdapter implements InputProcessor {
         viewport.apply();
 
         scene = new TmxMapLoader().load("scene.tmx");
+        MapLayer a = new MapLayer();
 
         Gdx.input.setInputProcessor(this);
 
         texture = new Texture(Gdx.files.internal("boss.png"));
-        objectLayer = scene.getLayers().get("monster");
         textureRegion = new TextureRegion(texture, 256, 256);
+        objectLayer = scene.getLayers().get("monster");
+
         scene_renderer = new OrthoTileMapWithSprite(scene);
         mCatmull = new CatmullRomSpline<Vector2>(mWayPoints, true);
 
@@ -202,13 +202,11 @@ public class ZIndex extends ApplicationAdapter implements InputProcessor {
     }
 
     public void travel(float x,float y) {
-        Log.e("Testx",x+"");
-        Log.e("Testy",y+"");
-
+//        Log.e("Testx",x+"");
+//        Log.e("Testy",y+"");
         TextureMapObject character= (TextureMapObject) scene.getLayers().get("monster").getObjects().get(0);
         character.setX(x);
         character.setY(y);
-
 //        Vector2 walk;
 //        Vector3 unproj;
 //        float t;
