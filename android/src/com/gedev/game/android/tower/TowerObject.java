@@ -1,5 +1,6 @@
 package com.gedev.game.android.tower;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
@@ -28,6 +29,8 @@ public class TowerObject extends TextureMapObject {
         this.setTextureRegion(new TextureRegion(this.mImage, width, height));
         this.setX(x);
         this.setY(y);
+
+        this.setColor(Color.BLUE);
 
         this.mTower.getObjects().add(this);
     }
