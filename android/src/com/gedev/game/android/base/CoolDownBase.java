@@ -32,10 +32,10 @@ public class CoolDownBase implements Screen {
 
     @Override
     public void render(float delta) {
-        for (float timer = 0; timer < delta; timer += CoolDownConstant.STEP)
+        for (float timer = 0; timer < delta; timer += CoolDownConstant.COOL_DOWN_STEP)
             if (coolDownTimer < 0) coolDownTimer += coolDown;
-            else if ((timer + CoolDownConstant.STEP) > delta) coolDownTimer -= (delta - timer);
-            else coolDownTimer -= CoolDownConstant.STEP;
+            else if ((timer + CoolDownConstant.COOL_DOWN_STEP) > delta) coolDownTimer -= (delta - timer);
+            else coolDownTimer -= CoolDownConstant.COOL_DOWN_STEP;
     }
 
     public float getCoolDown() {
