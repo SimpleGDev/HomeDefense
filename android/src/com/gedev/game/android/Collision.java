@@ -1,5 +1,7 @@
 package com.gedev.game.android;
 
+import android.util.Log;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -20,7 +22,11 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.gedev.game.android.tower.BaseTower;
+import com.gedev.game.android.object.WeaponBase;
+import com.gedev.game.android.view.TowerView;
+import com.gedev.game.android.view.WeaponView;
+
+import java.util.ArrayList;
 
 /**
  * Created by ultimate on 6/6/2015.
@@ -120,9 +126,14 @@ public class Collision extends ApplicationAdapter implements InputProcessor {
 //        mRectangle2 = new Rectangle(tmo2.getX(), tmo2.getY(), tmo2.getTextureRegion().getRegionWidth(), tmo2.getTextureRegion().getRegionHeight());
         mCircle = new Circle(18 * 64, 9 * 64, 50.0f);
 
+        ArrayList<Float> arrFloat =  new ArrayList<Float>();
+        arrFloat.add(3.0f);
+        MapLayer basetower = new TowerView(scene, "tile_question_box.png", "arrow_tower_level_1", 18 * 64, 9 * 64, 256, 256, Color.rgba4444(128, 255, 255, 255), 1000
+                ,tmo,new WeaponView(new WeaponBase("Base", arrFloat,10,9,10.0f,1.0f)));
 
-        MapLayer tower = new BaseTower(scene, "tile_question_box.png", "arrow_tower_level_1", 18 * 64, 9 * 64, 256, 256, Color.rgba4444(128, 255, 255, 255), 1000);
+        TowerView tower = (TowerView) basetower;
 
+        Log.e("Test", tower.getDamage()+"");
     }
 
     @Override

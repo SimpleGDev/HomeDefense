@@ -38,6 +38,7 @@ public class TestScene  extends ApplicationAdapter implements InputProcessor {
         touch_started = new Vector2();
 
         Gdx.input.setInputProcessor(this);
+
     }
 
     @Override
