@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -12,6 +13,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -23,14 +25,14 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 /**
  * Created by ultimate on 6/23/2015.
  */
-public class DialogTest2 extends ApplicationAdapter implements InputProcessor{
+public class DialogTest2 extends ApplicationAdapter implements InputProcessor {
     private Skin skin;
     private Stage stage;
 
     private Table table;
     private TextButton startButton;
     private TextButton quitButton;
-
+    private Dialog mDialog;
     private SpriteBatch batch;
     private Sprite sprite;;
 
