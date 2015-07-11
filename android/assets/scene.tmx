@@ -3,7 +3,7 @@
  <tileset firstgid="1" name="stone" tilewidth="64" tileheight="64">
   <image source="assets.png" width="1536" height="2048"/>
  </tileset>
- <tileset firstgid="769" name="path" tilewidth="64" tileheight="64">
+ <tileset firstgid="769" name="wayPoints" tilewidth="64" tileheight="64">
   <image source="gamepath.png" width="2048" height="1536"/>
  </tileset>
  <layer name="field_0" width="32" height="24">

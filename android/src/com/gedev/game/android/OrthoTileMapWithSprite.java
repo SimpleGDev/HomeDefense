@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Created by ultimate on 5/23/2015.
+ * Updated by dreamtoo on 6/20/2015.
  */
 public class OrthoTileMapWithSprite extends OrthogonalTiledMapRenderer  {
 
