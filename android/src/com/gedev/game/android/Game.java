@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.gedev.game.android.mstate.StageOne;
 import com.gedev.game.android.mstate.Tutorial;
 
 /**
@@ -17,7 +18,7 @@ public class Game extends ApplicationAdapter {
 
     private OrthographicCamera camera;
     private Viewport viewport;
-    private Tutorial tutorial;
+    private StageOne stageOne;
 
     public Game() {
         camera = new OrthographicCamera();
@@ -27,7 +28,7 @@ public class Game extends ApplicationAdapter {
     @Override
     public void create() {
         viewport.apply(true);
-        tutorial = new Tutorial();
+        stageOne = new StageOne();
     }
 
     @Override
@@ -41,7 +42,7 @@ public class Game extends ApplicationAdapter {
         Gdx.graphics.getGL20().glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
         camera.update();
-        tutorial.render(camera);
+        stageOne.render(camera);
     }
 
     @Override

@@ -6,43 +6,37 @@
  <tileset firstgid="769" name="wayPoints" tilewidth="64" tileheight="64">
   <image source="gamepath.png" width="2048" height="1536"/>
  </tileset>
- <layer name="field_0" width="32" height="24">
+ <layer name="field" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3DAQ0AAAzDoPqf6Qs5JKyaqqr64gF4Yi07AAwAAA==
   </data>
  </layer>
- <layer name="road_0" width="32" height="24">
+ <layer name="road" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3WY9cQBgCG4XfVG5dt27Zt21gt21y2bdu2a6uWlrls2+36F31Y9znXT3jOeQICfvZ/7o+gAQH9GcBABjGYIQxlGMMZwUhGMZoxjGUc45nARCYxmSlMZRrTmcFMZjGbOcxlHvNZwEIWsZglLGUZy1nBSlaxmjWsZR3r2cBGNrGZLWxlG9vZwU52sZs97GUf+znAQQ5xmD/5iyMc5Rh/c5wTnOQUp/mHM5zlHOe5wEUucZkrXOUa1/mXG9zkFre5w13ucZ8HPOQRj3nCU57xnBe85BWvecNb3vGeD3zkE5/5wle+8Z2AYAEBvxCEoAQjkOCEICShCE0YfiUs4QhPBCISichEISrRiE4MYhKL2MQhLvGITwISkojEJCEpyUhOClKSitSkIS3pSE8GMpKJzGQhK9nITg5ykovc5CEv+chPAQpSiMIUoSjFKE4JSlKK0pShLOUoTwUqUonKVKEq1ahODWpSi9rUoS71qE8DGtKIxjThN5rSjN9pTgta0orWtKEt7WhPBzrSic50oSvd6E4PetKL3vShL/34g/4MYCCDGMwQhjKM4YxgJKMYzRjGMo7xTGAik5jMFKYyjenMYCazmM0c5jKP+SxgIYtYzBKWsozlrGAlq1jNGtayjvVsYCOb2MwWtrKN7exgJ7vYzR72so/9HOAghzjMn/zFEY5yjL85zglOcorT/MMZznKO81zgIpe4zBWuco3r/MsNbnKL29zhLve4zwMe8ojHPOEpz3jOC17yite84S3veM8HPvKJz3zhK9/4TkCg/ROEoAQjkOCEICShCE0YfiUs4QhPBCISichEISrRiE4MYhKL2MQhLvGITwISkojEJCEpyUhOClKSitSkIS3pSE8GMpKJzGQhK9nITg5ykovc5CEv+chPAQpSiMIUoSjFKE4JSlKK0pShLOUoTwUqUonKVKEq1ahODWpSi9rUoS71qE8DGtKIxjThN5rSjN9pTgta0orWtKEt7WhPBzrSic50oSvd6E4PetKL3vShL/0Cf/T7+NmP7j9HNGwTAAwAAA==
   </data>
  </layer>
- <objectgroup name="monster"/>
- <layer name="stone_1" width="32" height="24">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3OAQ0AAAgDoPe3tDHuJiQggR+mHQAAOGABEKDHCAAMAAA=
-  </data>
- </layer>
- <layer name="behind_cave" width="32" height="24">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3PRxGAQBQE0SWJIIkgiSCJIIkgeacvWPiXna5656lxTvlSgBARYiTG+yky5ChQGu9XqNGgRWe832PAiAmz8f6CFRt2HMb7Jy7cePAa7/v+XymllPr7AJYhHD0ADAAA
-  </data>
- </layer>
- <layer name="castle_0" width="32" height="24">
+ <layer name="castle" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3N2RVDYBQA4fu/IoqwFRFLEbYiEEUgiiBSa6aKmwd3zvmeR8SyrLvmOREfAR4Ine4/4hcjQYpM+f/kl6NAiUr5X/Nr0KJDr/wf+I2Y8MKs/F/4rdjwxq78P/id+ODCV/lvWZb1r347aslNAAwAAA==
   </data>
  </layer>
- <layer name="castle_1" width="32" height="24">
+ <layer name="cave_0" width="32" height="24">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3PRxGAQBQE0SWJIIkgiSCJIIkgeacvWPiXna5656lxTvlSgBARYiTG+yky5ChQGu9XqNGgRWe832PAiAmz8f6CFRt2HMb7Jy7cePAa7/v+XymllPr7AJYhHD0ADAAA
+  </data>
+ </layer>
+ <layer name="cave_1" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3NyQ2CYBRFYQSkBwbpQaYeGKQHUeiByQZsmrMkJG5M/sfmneTb3mtZZvoemN7/xURn/Wr/d4ENBy6u8AT/fQQIEeGGWPD/jgQpMuQoBP9LVKjR4IFW8P+JDi+80WMQ/B8xYcaCFR/Bf03TNE3btwFmOovTAAwAAA==
   </data>
  </layer>
- <layer name="other_object" width="32" height="24">
+ <layer name="other_object_0" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3OWwqCUBDGcd/TXIRZi9BqQ+6kJ7u4B+2yhy62h9TF9H/owCGEmjhEwXzwY2D4hnM877MshFxF+u6v/MN1vvGGRqPRaDSa/80APgIMETruv0qEEWJkWGKFtTU3KHr6Y0yQP92Z/jv7BCmmKFFhi5019zg87uz+DPOeO9OX7o844YyLNWtcBXemL93f0KBFhzuq/aP/AAwAAA==
+   H4sIAAAAAAAAC+3OywnCQBCA4dxNtIg8LCJRG0onOWnUHoyPHoyPHowW439wYZEFM7KIh/nhY2GYIQmC76qEfCX97r/8h6ZpmqZp2i8bIESEIUae9z8VI0GKEgvUWFrvCmvHfoYx5m93Zr/PPEeBCTZosMXOevc4vO7s/SlmjjuzL50f0eKEs/VecBXcmX3p/IYOdzzwBKh/agEADAAA
   </data>
  </layer>
- <layer name="other_object_level2" width="32" height="24">
+ <layer name="other_object_1" width="32" height="24">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3OyQmAMBRF0RRsJ64ce3DswbEHx1q82YkQJCGgi3/h7N4nUcqu0JHPvn7f5Q+SJEmSJEl/KUKMBCky5J5v7vvgsS9QokKNBu3LG7Y3pr2uQ48BIybMnm9Me92CFRt2HDg935j2ugsj1Kl9AAwAAA==
   </data>
