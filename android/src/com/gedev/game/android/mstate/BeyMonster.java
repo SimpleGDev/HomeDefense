@@ -16,7 +16,7 @@ public class BeyMonster extends IMonsterBase {
     public BeyMonster(float x, float y) {
         super("Bey", x, y, 10, 0.25f, 3);
 
-        setView(new TextureRegion(new Texture(Gdx.files.internal("bey.png")), 64, 64));
+        setTextureRegion(new TextureRegion(new Texture(Gdx.files.internal("bey.png")), 64, 64));
     }
 
     public BeyMonster(Vector2 geometry) {

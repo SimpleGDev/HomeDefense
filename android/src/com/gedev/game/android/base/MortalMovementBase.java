@@ -19,11 +19,11 @@ public abstract class MortalMovementBase extends MortalBase {
     }
 
     public float getSpeed() {
-        return (float) getObject().getProperties().get("speed");
+        return (float) getProperties().get("speed");
     }
 
     public void setSpeed(float speed) {
-        getObject().getProperties().put("speed", speed);
+        getProperties().put("speed", speed);
     }
 
 }

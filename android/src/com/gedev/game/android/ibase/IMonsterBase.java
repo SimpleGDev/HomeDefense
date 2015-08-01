@@ -35,19 +35,19 @@ public abstract class IMonsterBase extends MortalMovementBase {
     }
 
     public int getDamage() {
-        return (int) getObject().getProperties().get("damage");
+        return (int) getProperties().get("damage");
     }
 
     public int getGold() {
-        return (int) getObject().getProperties().get("gold");
+        return (int) getProperties().get("gold");
     }
 
     public void setDamage(int damage) {
-        getObject().getProperties().put("damage", damage);
+        getProperties().put("damage", damage);
     }
 
     public void setGold(int gold) {
-        getObject().getProperties().put("gold", gold);
+        getProperties().put("gold", gold);
     }
 
 }
