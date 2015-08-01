@@ -28,18 +28,17 @@
  </layer>
  <layer name="cave_1" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3NyQ2CYBRFYQSkBwbpQaYeGKQHUeiByQZsmrMkJG5M/sfmneTb3mtZZvoemN7/xURn/Wr/d4ENBy6u8AT/fQQIEeGGWPD/jgQpMuQoBP9LVKjR4IFW8P+JDi+80WMQ/B8xYcaCFR/Bf03TNE3btwFmOovTAAwAAA==
+   H4sIAAAAAAAAC+3NRw2AABAAQboHqgeqB6oHqgeqdvaJgnuQ22Teaxia9v9MWLDhwIUn+PcRIESEGIngP0WGHAVKVIL/Gg1adOgxCP5HTJixYMUm+N9x4MSFG4/gX9M0TdO+vZMKI/QADAAA
   </data>
  </layer>
  <layer name="other_object_0" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3OywnCQBCA4dxNtIg8LCJRG0onOWnUHoyPHoyPHowW439wYZEFM7KIh/nhY2GYIQmC76qEfCX97r/8h6ZpmqZp2i8bIESEIUae9z8VI0GKEgvUWFrvCmvHfoYx5m93Zr/PPEeBCTZosMXOevc4vO7s/SlmjjuzL50f0eKEs/VecBXcmX3p/IYOdzzwBKh/agEADAAA
+   H4sIAAAAAAAAC+3L2w2CQBBGYd4VLULFIhRpiGYEpAevPSBID4DFcB7cZGM20U18Mv9JvkwymQkCpZRSSin1b00wRYgZ5j++/9QCS6yQIkOOwpoHlI77CGvs3/7M/Tf7DbaIccQJZ1ysecXt9Wff75A4/sy9777CHTUaaz7QevyZe999hx4DnhgB4C9DtwAMAAA=
   </data>
  </layer>
  <layer name="other_object_1" width="32" height="24">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3OyQmAMBRF0RRsJ64ce3DswbEHx1q82YkQJCGgi3/h7N4nUcqu0JHPvn7f5Q+SJEmSJEl/KUKMBCky5J5v7vvgsS9QokKNBu3LG7Y3pr2uQ48BIybMnm9Me92CFRt2HDg935j2ugsj1Kl9AAwAAA==
+   H4sIAAAAAAAAC+3NyQmAMBRF0RRsM449OPZgHHpwrMWbnQhBhOx8F87ufb4xSimllFLqT8VIkCJDjiLwzX0fPfYlKtRo0KJ7+fH1xrd39bAYMGLCHPjGt3ctWLFhx4Ez8I1v77oAITufMgAMAAA=
   </data>
  </layer>
- <objectgroup name="object_collision"/>
 </map>

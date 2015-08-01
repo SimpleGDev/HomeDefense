@@ -10,18 +10,9 @@ import java.util.ArrayList;
  * Date 4/7/2558
  * Time 8:58 AM
  */
-public abstract class IStageBase extends ObjectBase {
+public abstract class IStageBase {
 
     private ArrayList<Vector2> wayPoints = new ArrayList<Vector2>();
-
-    public IStageBase(String name) {
-        super(name);
-    }
-
-    public IStageBase(String name, ArrayList<Vector2> wayPoints) {
-        super(name);
-        this.wayPoints = wayPoints;
-    }
 
     public void addWayPoint(Vector2 point) {
         wayPoints.add(point);

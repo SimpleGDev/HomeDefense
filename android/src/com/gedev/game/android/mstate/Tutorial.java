@@ -18,7 +18,6 @@ public class Tutorial extends IStageBase implements InputProcessor {
     private OrthogonalTiledMapRenderer renderer;
 
     public Tutorial() {
-        super("tutorial");
         scene = new TmxMapLoader().load("scene.tmx");
         renderer = new OrthogonalTiledMapRenderer(scene);
     }

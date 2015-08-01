@@ -1,17 +1,26 @@
 package com.gedev.game.android.mstate;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
-import com.gedev.game.android.ibase.IMonsterModelBase;
+import com.gedev.game.android.ibase.IMonsterBase;
 
 /**
  * Created by Mr. Kraisorn Rakam.
  * 8/1/2015
  * 2:36 AM
  */
-public class BeyMonster extends IMonsterModelBase {
+public class BeyMonster extends IMonsterBase {
+
+    public BeyMonster(float x, float y) {
+        super("Bey", x, y, 10, 0.25f, 3);
+
+        setView(new TextureRegion(new Texture(Gdx.files.internal("bey.png")), 64, 64));
+    }
 
     public BeyMonster(Vector2 geometry) {
-        super("Bey", geometry, 10, 0.25f, 3);
+        this(geometry.x, geometry.y);
     }
 
 }
