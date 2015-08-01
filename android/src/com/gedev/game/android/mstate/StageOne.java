@@ -1,6 +1,9 @@
 package com.gedev.game.android.mstate;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -19,7 +22,8 @@ public class StageOne extends IStageBase {
 
     private final float BLOCK_SIZE = 64f;
     private TiledMap scene;
-    private BeyMonster beyMonster;
+    private MapLayer field;
+    private BeyMonster bey;
     private OrthogonalTiledMapRenderer renderer;
     private Vector2[] wayBlocks = {
             // part 1.
@@ -85,11 +89,24 @@ public class StageOne extends IStageBase {
         setWayPoints(generateWayBlocks()); // mul the way blocks by block size (64 pixel).
 
         scene = new TmxMapLoader().load("scene.tmx");
-        beyMonster = new BeyMonster(getWayPoints().get(0));
-        scene.getLayers().get("monster").getObjects().add(beyMonster);
+        field = new MapLayer();
+        bey = new BeyMonster(getWayPoints().get(0));
 
-//        MapLayers layers = scene.getLayers();
-        renderer = new OrthogonalTiledMapRenderer(scene);
+        field.setName("field");
+        field.getObjects().add(bey);
+        scene.getLayers().add(field);
+
+        renderer = new OrthogonalTiledMapRenderer(scene) {
+
+            @Override
+            public void renderObject(MapObject object) {
+                if (object instanceof TextureMapObject) {
+                    TextureMapObject textureObject = (TextureMapObject) object;
+                    batch.draw(textureObject.getTextureRegion(), textureObject.getX(), textureObject.getY());
+                }
+            }
+
+        };
     }
 
     public void render(OrthographicCamera camera) {
