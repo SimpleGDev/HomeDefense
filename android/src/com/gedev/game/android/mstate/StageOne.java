@@ -1,5 +1,6 @@
 package com.gedev.game.android.mstate;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
@@ -7,6 +8,7 @@ import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.CatmullRomSpline;
 import com.badlogic.gdx.math.Vector2;
 import com.gedev.game.android.ibase.IStageBase;
 
@@ -85,6 +87,10 @@ public class StageOne extends IStageBase {
             new Vector2(31f, 14f),
     };
 
+    private CatmullRomSpline<Vector2> catmull;
+    private float current = 0f;
+    private int i = 0;
+
     public StageOne() {
         setWayPoints(generateWayBlocks()); // mul the way blocks by block size (64 pixel).
 
@@ -102,16 +108,32 @@ public class StageOne extends IStageBase {
             public void renderObject(MapObject object) {
                 if (object instanceof TextureMapObject) {
                     TextureMapObject textureObject = (TextureMapObject) object;
+
                     batch.draw(textureObject.getTextureRegion(), textureObject.getX(), textureObject.getY());
                 }
             }
 
         };
+
+        catmull = new CatmullRomSpline<>(wayBlocks, true);
     }
 
     public void render(OrthographicCamera camera) {
         renderer.setView(camera);
         renderer.render();
+
+        current += Gdx.graphics.getDeltaTime() * bey.getSpeed();
+
+        if (current >= 1) {
+            current = 0;
+
+            if (++i >= wayBlocks.length) {
+                i = 0;
+                renderer.dispose();
+            }
+        }
+
+        bey.setGeometry(catmull.valueAt(new Vector2(wayBlocks[i].x, wayBlocks[i].y), current));
     }
 
     private ArrayList<Vector2> generateWayBlocks() {

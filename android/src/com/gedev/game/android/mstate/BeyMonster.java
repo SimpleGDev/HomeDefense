@@ -14,7 +14,7 @@ import com.gedev.game.android.ibase.IMonsterBase;
 public class BeyMonster extends IMonsterBase {
 
     public BeyMonster(float x, float y) {
-        super("Bey", x, y, 10, 0.25f, 3);
+        super("Bey", x, y, 10, 0.15f, 3);
 
         setTextureRegion(new TextureRegion(new Texture(Gdx.files.internal("bey.png")), 64, 64));
     }
