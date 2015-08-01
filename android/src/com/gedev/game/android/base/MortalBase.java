@@ -1,7 +1,5 @@
 package com.gedev.game.android.base;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.math.Vector2;

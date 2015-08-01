@@ -1,6 +1,7 @@
 package com.gedev.game.android.mstate;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -86,9 +87,9 @@ public class StageOne extends IStageBase {
 
         scene = new TmxMapLoader().load("scene.tmx");
         beyMonster = new BeyMonster(getWayPoints().get(0));
-        renderer = new OrthogonalTiledMapRenderer(scene);
-
         scene.getLayers().add(beyMonster);
+
+        renderer = new OrthogonalTiledMapRenderer(scene);
     }
 
     public void render(OrthographicCamera camera) {
