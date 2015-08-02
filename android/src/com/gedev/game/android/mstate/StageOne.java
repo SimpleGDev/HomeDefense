@@ -11,6 +11,7 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.CatmullRomSpline;
 import com.badlogic.gdx.math.Vector2;
 import com.gedev.game.android.ibase.IStageBase;
+import com.gedev.game.android.renderer.MapObjectRenderer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +28,7 @@ public class StageOne extends IStageBase {
     private MapLayer field;
     private BeyMonster bey;
     private OrthogonalTiledMapRenderer renderer;
+    private MapObjectRenderer beyRenderer;
     private Vector2[] wayBlocks = {
             // part 1.
             new Vector2(3f, 11f),
@@ -102,18 +104,8 @@ public class StageOne extends IStageBase {
         field.getObjects().add(bey);
         scene.getLayers().add(field);
 
-        renderer = new OrthogonalTiledMapRenderer(scene) {
-
-            @Override
-            public void renderObject(MapObject object) {
-                if (object instanceof TextureMapObject) {
-                    TextureMapObject textureObject = (TextureMapObject) object;
-
-                    batch.draw(textureObject.getTextureRegion(), textureObject.getX(), textureObject.getY());
-                }
-            }
-
-        };
+        renderer = new OrthogonalTiledMapRenderer(scene);
+        beyRenderer = new MapObjectRenderer(bey);
 
         catmull = new CatmullRomSpline<>(wayBlocks, true);
     }
@@ -121,6 +113,9 @@ public class StageOne extends IStageBase {
     public void render(OrthographicCamera camera) {
         renderer.setView(camera);
         renderer.render();
+
+        beyRenderer.setView(camera);
+        beyRenderer.render();
 
         current += Gdx.graphics.getDeltaTime() * bey.getSpeed();
 

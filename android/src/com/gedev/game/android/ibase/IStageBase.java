@@ -1,7 +1,6 @@
 package com.gedev.game.android.ibase;
 
 import com.badlogic.gdx.math.Vector2;
-import com.gedev.game.android.base.ObjectBase;
 
 import java.util.ArrayList;
 

@@ -8,14 +8,14 @@ import com.badlogic.gdx.math.Vector2;
  */
 public abstract class MortalMovementBase extends MortalBase {
 
+    public MortalMovementBase(String name, Vector2 geometry, int health, float speed) {
+        this(name, geometry.x, geometry.y, health, speed);
+    }
+
     public MortalMovementBase(String name, float x, float y, int health, float speed) {
         super(name, x, y, health);
 
         setSpeed(speed);
-    }
-
-    public MortalMovementBase(String name, Vector2 geometry, int health, float speed) {
-        this(name, geometry.x, geometry.y, health, speed);
     }
 
     public float getSpeed() {

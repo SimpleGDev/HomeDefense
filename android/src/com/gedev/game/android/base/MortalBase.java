@@ -1,5 +1,6 @@
 package com.gedev.game.android.base;
 
+import com.badlogic.gdx.maps.MapRenderer;
 import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.math.Vector2;
 
@@ -9,15 +10,15 @@ import com.badlogic.gdx.math.Vector2;
  */
 public abstract class MortalBase extends TextureMapObject {
 
+    public MortalBase(String name, Vector2 geometry, int health) {
+        this(name, geometry.x, geometry.y, health);
+    }
+
     public MortalBase(String name, float x, float y, int health) {
         setName(name);
 
         setGeometry(x, y);
         setHealth(health);
-    }
-
-    public MortalBase(String name, Vector2 geometry, int health) {
-        this(name, geometry.x, geometry.y, health);
     }
 
     public Vector2 getGeometry() {

@@ -1,13 +1,7 @@
 package com.gedev.game.android.ibase;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.gedev.game.android.base.MortalMovementBase;
-
-import java.util.logging.FileHandler;
 
 /**
  * Created by ultimate on 6/20/2015.

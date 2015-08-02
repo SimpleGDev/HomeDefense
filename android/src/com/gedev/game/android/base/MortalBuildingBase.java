@@ -8,12 +8,12 @@ import com.badlogic.gdx.math.Vector2;
  */
 public abstract class MortalBuildingBase extends MortalBase {
 
-    public MortalBuildingBase(String name, float x, float y, int healthPoint) {
-        super(name, x, y, healthPoint);
+    public MortalBuildingBase(String name, Vector2 geometry, int health) {
+        this(name, geometry.x, geometry.y, health);
     }
 
-    public MortalBuildingBase(String name, Vector2 geometry, int healthPoint) {
-        super(name, geometry, healthPoint);
+    public MortalBuildingBase(String name, float x, float y, int healthPoint) {
+        super(name, x, y, healthPoint);
     }
 
 }
