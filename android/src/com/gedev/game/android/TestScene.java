@@ -17,7 +17,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 /**
  * Created by ultimate on 6/20/2015.
  */
-public class TestScene  extends ApplicationAdapter implements InputProcessor {
+public class TestScene extends ApplicationAdapter implements InputProcessor {
     private TiledMap scene;
     private TiledMapRenderer scene_renderer;
     private OrthographicCamera camera;

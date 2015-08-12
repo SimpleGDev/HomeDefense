@@ -115,10 +115,8 @@ public class ZIndex extends ApplicationAdapter implements InputProcessor {
         mCatmull = new CatmullRomSpline<Vector2>(mWayPoints, true);
 
         TextureMapObject tmo = new TextureMapObject(textureRegion);
-
         tmo.setX(0);
         tmo.setY(0);
-
         objectLayer.getObjects().add(tmo);
     }
 
