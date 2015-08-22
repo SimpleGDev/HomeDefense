@@ -4,21 +4,21 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Rectangle;
-import com.gedev.game.android.base.RendererBase;
+import com.gedev.game.android.base.Renderer;
 
 /**
  * Created by Kraisorn Rakam
  * Date 21/6/2558
  * Time 01:17 PM
  */
-public abstract class IRendererBase implements RendererBase {
+public abstract class IRenderer implements Renderer {
 
     protected SpriteBatch batch;
     protected Rectangle bounds;
 
-    public IRendererBase() {this(null);}
+    public IRenderer() {this(null);}
 
-    public IRendererBase(OrthographicCamera camera) {
+    public IRenderer(OrthographicCamera camera) {
         batch = new SpriteBatch();
         bounds = new Rectangle();
 

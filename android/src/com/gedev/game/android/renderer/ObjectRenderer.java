@@ -15,23 +15,23 @@ import com.badlogic.gdx.math.Ellipse;
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Polyline;
 import com.badlogic.gdx.math.Rectangle;
-import com.gedev.game.android.ibase.IRendererBase;
+import com.gedev.game.android.ibase.IRenderer;
 
 /**
  * Created by Mr. Kraisorn Rakam.
  * 8/2/2015
  * 2:10 PM
  */
-public class MapObjectRenderer extends IRendererBase {
+public class ObjectRenderer extends IRenderer {
 
     private MapObject object;
     private ShapeRenderer shapeRenderer;
 
-    public MapObjectRenderer() {this(null);}
+    public ObjectRenderer() {this(null);}
 
-    public MapObjectRenderer(MapObject object) {this(object, null);}
+    public ObjectRenderer(MapObject object) {this(object, null);}
 
-    public MapObjectRenderer(MapObject object, OrthographicCamera camera) {
+    public ObjectRenderer(MapObject object, OrthographicCamera camera) {
         super(camera);
 
         this.object = object;

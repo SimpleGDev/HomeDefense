@@ -3,15 +3,13 @@ package com.gedev.game.android.mstate;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.maps.objects.TextureMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.CatmullRomSpline;
 import com.badlogic.gdx.math.Vector2;
 import com.gedev.game.android.ibase.IStageBase;
-import com.gedev.game.android.renderer.MapObjectRenderer;
+import com.gedev.game.android.renderer.ObjectRenderer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +26,7 @@ public class StageOne extends IStageBase {
     private MapLayer field;
     private BeyMonster bey;
     private OrthogonalTiledMapRenderer renderer;
-    private MapObjectRenderer beyRenderer;
+    private ObjectRenderer beyRenderer;
     private Vector2[] wayBlocks = {
             // part 1.
             new Vector2(3f, 11f),
@@ -105,7 +103,7 @@ public class StageOne extends IStageBase {
         scene.getLayers().add(field);
 
         renderer = new OrthogonalTiledMapRenderer(scene);
-        beyRenderer = new MapObjectRenderer(bey);
+        beyRenderer = new ObjectRenderer(bey);
 
         catmull = new CatmullRomSpline<>(wayBlocks, true);
     }

@@ -1,35 +1,35 @@
 package com.gedev.game.android.ibase;
 
 import com.badlogic.gdx.math.Vector2;
-import com.gedev.game.android.base.ImmortalBase;
+import com.gedev.game.android.base.Immortal;
 
 /**
  * Created by ultimate on 6/20/2015.
  * Updated by Kraisorn Rakam on 7/03/2015.
  */
-public abstract class IWeaponModelBase extends ImmortalBase {
+public abstract class IWeaponModel extends Immortal {
 
     private float range;
     private int damage;
     private float distance;
     private float coolDown = 0.0f;
 
-    public IWeaponModelBase(String name, float x, float y, float range, int damage, float distance) {
+    public IWeaponModel(String name, float x, float y, float range, int damage, float distance) {
         super(name, x, y);
         initialize(range, damage, distance);
     }
 
-    public IWeaponModelBase(String name, float x, float y, float range, int damage, float distance, float coolDown) {
+    public IWeaponModel(String name, float x, float y, float range, int damage, float distance, float coolDown) {
         super(name, x, y);
         initialize(range, damage, distance, coolDown);
     }
 
-    public IWeaponModelBase(String name, Vector2 geometry, float range, int damage, float distance) {
+    public IWeaponModel(String name, Vector2 geometry, float range, int damage, float distance) {
         super(name, geometry);
         initialize(range, damage, distance);
     }
 
-    public IWeaponModelBase(String name, Vector2 geometry, float range, int damage, float distance, float coolDown) {
+    public IWeaponModel(String name, Vector2 geometry, float range, int damage, float distance, float coolDown) {
         super(name, geometry);
         initialize(range, damage, distance, coolDown);
     }

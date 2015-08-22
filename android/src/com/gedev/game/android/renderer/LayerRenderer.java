@@ -2,27 +2,27 @@ package com.gedev.game.android.renderer;
 
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
-import com.gedev.game.android.ibase.IRendererBase;
+import com.gedev.game.android.ibase.IRenderer;
 
 /**
  * Created by Mr. Kraisorn Rakam.
  * 8/2/2015
  * 1:08 PM
  */
-public class MapLayerRenderer extends IRendererBase {
+public class LayerRenderer extends IRenderer {
 
     private MapLayer layer;
-    private MapObjectsRenderer objectsRenderer;
+    private ObjectsRenderer objectsRenderer;
 
-    public MapLayerRenderer() {this(null);}
+    public LayerRenderer() {this(null);}
 
-    public MapLayerRenderer(MapLayer layer) {this(layer, null);}
+    public LayerRenderer(MapLayer layer) {this(layer, null);}
 
-    public MapLayerRenderer(MapLayer layer, OrthographicCamera camera) {
+    public LayerRenderer(MapLayer layer, OrthographicCamera camera) {
         super(camera);
 
         this.layer = layer;
-        objectsRenderer = new MapObjectsRenderer();
+        objectsRenderer = new ObjectsRenderer();
     }
 
     public MapLayer getLayer() {return layer;}
