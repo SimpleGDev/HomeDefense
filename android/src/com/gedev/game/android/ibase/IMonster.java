@@ -1,6 +1,5 @@
 package com.gedev.game.android.ibase;
 
-import com.badlogic.gdx.math.Vector2;
 import com.gedev.game.android.base.MortalMovement;
 
 /**
@@ -9,6 +8,8 @@ import com.gedev.game.android.base.MortalMovement;
  */
 public abstract class IMonster extends MortalMovement {
 
+    public IMonster(String name, float x, float y, int health, float speed, int damage) {this(name, x, y, health, speed, damage, 0);}
+
     public IMonster(String name, float x, float y, int health, float speed, int damage, int gold) {
         super(name, x, y, health, speed);
 
@@ -16,32 +17,12 @@ public abstract class IMonster extends MortalMovement {
         setGold(gold);
     }
 
-    public IMonster(String name, Vector2 geometry, int health, float speed, int damage, int gold) {
-        this(name, geometry.x, geometry.y, health, speed, damage, gold);
-    }
+    public int getDamage() {return (int) getProperties().get("damage");}
 
-    public IMonster(String name, float x, float y, int health, float speed, int damage) {
-        this(name, x, y, health, speed, damage, 0);
-    }
+    public int getGold() {return (int) getProperties().get("gold");}
 
-    public IMonster(String name, Vector2 geometry, int health, float speed, int damage) {
-        this(name, geometry.x, geometry.y, health, speed, damage);
-    }
+    public void setDamage(int damage) {getProperties().put("damage", damage);}
 
-    public int getDamage() {
-        return (int) getProperties().get("damage");
-    }
-
-    public int getGold() {
-        return (int) getProperties().get("gold");
-    }
-
-    public void setDamage(int damage) {
-        getProperties().put("damage", damage);
-    }
-
-    public void setGold(int gold) {
-        getProperties().put("gold", gold);
-    }
+    public void setGold(int gold) {getProperties().put("gold", gold);}
 
 }

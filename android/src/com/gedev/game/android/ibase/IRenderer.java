@@ -37,8 +37,8 @@ public abstract class IRenderer implements Renderer {
     public void setView(OrthographicCamera camera) {
         if (camera == null) return;
 
-        float width = camera.viewportWidth * camera.zoom;
-        float height = camera.viewportHeight * camera.zoom;
+        float width = (camera.viewportWidth * camera.zoom);
+        float height = (camera.viewportHeight * camera.zoom);
 
         setView(camera.combined, camera.position.x - (width / 2), camera.position.y - (height / 2), width, height);
     }

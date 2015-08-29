@@ -9,26 +9,18 @@ import com.badlogic.gdx.math.Vector2;
  */
 public abstract class Immortal extends TextureMapObject {
 
-    public Immortal(String name, Vector2 geometry) {
-        this(name, geometry.x, geometry.y);
-    }
-
     public Immortal(String name, float x, float y) {
         setName(name);
         setGeometry(x, y);
     }
 
-    public Vector2 getGeometry() {
-        return new Vector2(getX(), getY());
-    }
+    public Vector2 getGeometry() {return new Vector2(getX(), getY());}
+
+    public void setGeometry(Vector2 geometry) {setGeometry(geometry.x, geometry.y);}
 
     public void setGeometry(float x, float y) {
         setX(x);
         setY(y);
-    }
-
-    public void setGeometry(Vector2 geometry) {
-        setGeometry(geometry.x, geometry.y);
     }
 
 }
